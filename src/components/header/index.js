@@ -1,11 +1,11 @@
-import React from "./node_modules/react";
-import { Link } from "./node_modules/react-router-dom";
+import React from "react";
+import { Link } from "react-router-dom";
 import { Container, Content, Side } from "./styles";
 import Home from "../../assets/icons/home.svg";
 import Notification from "../../assets/icons/notification.svg";
 import Messages from "../../assets/icons/message.svg";
 import Logo from "../../assets/icons/logo.svg";
-import { useSelector } from "./node_modules/react-redux";
+import { useSelector } from "react-redux";
 
 export default function Header() {
   const { avatar } = useSelector((state) => state.user);
