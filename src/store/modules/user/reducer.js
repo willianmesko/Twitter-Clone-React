@@ -12,7 +12,7 @@ const INITIAL_STATE = {
     { id: 1, text: "novo www", likes: 0, comments: 0, replies: 0 },
     { id: 2, text: "novo w", likes: 0, comments: 0, replies: 0 },
   ],
-  tweetsCount: 3,
+
   followers: 42,
   following: 42,
   favorites: 42,
@@ -78,7 +78,7 @@ export default function user(state = INITIAL_STATE, action) {
         draft.tweets[index].comments = 0;
         draft.tweets[index].likes = 0;
         draft.tweets[index].replies = 0;
-        draft.tweetsCount = draft.tweets.length;
+
         break;
       }
       case "@user/FOLLOW_USER": {

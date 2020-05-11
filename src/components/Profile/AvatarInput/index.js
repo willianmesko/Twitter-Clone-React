@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useRef } from "react";
 import { Container } from "./styles";
 import { storage } from "../../../firebase";
 import { useSelector, useDispatch } from "react-redux";

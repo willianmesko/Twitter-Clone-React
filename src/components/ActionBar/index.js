@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import uuid from "react-uuid";
 
@@ -11,10 +11,11 @@ export default function ActionBar() {
     id: "",
     text: "",
   });
-  const { tweetsCount, followers, following, favorites } = useSelector(
+  const { followers, following, favorites, tweets } = useSelector(
     (state) => state.user
   );
   const dispatch = useDispatch();
+  const tweetsCount = useMemo(() => tweets.length, [tweets]);
   const handleTweet = (e) => {
     e.preventDefault();
     if (tweet.text.length > 0) {

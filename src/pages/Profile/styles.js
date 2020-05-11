@@ -6,17 +6,20 @@ export const Container = styled.div`
   form {
     display: flex;
     flex-direction: column;
-    margin-top: 30px;
+    margin-top: 20vh;
+    #bio {
+      height: 88px;
+    }
     input {
-      background: rgba(0, 0, 0, 0.1);
+      background: #fff;
       border: 0;
       border-radius: 4px;
       height: 44px;
       padding: 0 15px;
-      color: #fff;
+      color: #000;
       margin: 0 0 10px;
       &::placeholder {
-        color: rgba(255, 255, 255, 0.7);
+        color: #000;
       }
     }
     span {
