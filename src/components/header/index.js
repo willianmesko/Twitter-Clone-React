@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Container, Content, Side } from "./styles";
 import Home from "../../assets/icons/home.svg";
 import Notification from "../../assets/icons/notification.svg";
@@ -24,10 +25,14 @@ export default function Header() {
             </li>
           </ul>
         </nav>
-        <img src={Logo} alt="Logo Twitter" />
+        <Link to="/">
+          <img src={Logo} alt="Logo Twitter" />
+        </Link>
         <Side>
           <input type="text" placeholder="Search on Twitter" />
-          <img src={avatar} alt="avatar" />
+          <Link to="/profile">
+            <img src={avatar} alt="avatar" />
+          </Link>
         </Side>
       </Content>
     </Container>

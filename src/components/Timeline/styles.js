@@ -23,21 +23,54 @@ export const Container = styled.section`
   nav {
     border-bottom: 1px solid #e6ecf0;
     padding: 10px 15px;
-
-    a {
+    ul {
+      display: flex;
+    }
+    li {
+      cursor: pointer;
+      list-style: none;
       text-decoration: none;
       color: #3bb9e3;
       font-size: 18px;
       font-weight: bold;
       margin-left: 20px;
 
+      &:hover {
+        opacity: 0.7;
+      }
       & active {
         color: #1f2226;
       }
     }
 
-    a:first-child {
+    li:first-child {
       margin: 0;
+    }
+  }
+
+  .medias {
+    ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+
+      li {
+        height: 200px;
+        width: 200px;
+
+        background: #d0d5d9;
+        border-radius: 8px;
+        flex-shrink: 0;
+        margin: 0 5px 5px 0;
+
+        img {
+          border-radius: 8px;
+          height: 200px;
+          width: 200px;
+        }
+      }
     }
   }
 `;
@@ -47,44 +80,43 @@ export const Tweets = styled.ul`
 `;
 
 export const Tweet = styled.li`
+  border-bottom: 1px solid #e6ecf0;
+  padding: 10px 15px;
+  display: flex;
 
-border-bottom: 1px solid #e6ecf0;
-    padding: 10px 15px;
+  img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+  }
+
+  .info {
+    margin-left: 10px;
     display: flex;
+    flex-direction: column;
 
-    img {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-    }
-
-    .info {
-      margin-left: 10px;
+    .actions {
       display: flex;
-      flex-direction: column;
+      margin-top: 20px;
+      a:first-child {
+        margin-left: 0;
+      }
 
-      .actions {
+      a {
+        cursor: pointer;
         display: flex;
-        margin-top: 20px;
-        a:first-child {
-          margin-left: 0;
-        }
+        align-items: center;
+        text-decoration: none;
+        color: #667580;
+        font-weight: bold;
+        font-size: 12px;
+        margin-left: 30px;
+        img {
+          margin-right: 5px;
 
-        a {
-          display: flex;
-          align-items: center;
-          text-decoration: none;
-          color: #667580;
-          font-weight: bold;
-          font-size: 12px;
-          margin-left: 30px;
-          img {
-            margin-right: 5px;
-         
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-          }
+          width: 18px;
+          height: 18px;
+          border-radius: 50%;
         }
       }
 

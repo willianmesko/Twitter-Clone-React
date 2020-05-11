@@ -49,7 +49,10 @@ export default function Cover() {
             />
           </div>
         ) : (
-          <img src={cover} alt="cover" />
+          <>
+            <p>troque a iimagem</p>
+            <img src={cover} alt="cover" />
+          </>
         )}
         <input
           onChange={handleImage}

@@ -18,3 +18,22 @@ export function NewTweet(tweet) {
     payload: { tweet },
   };
 }
+
+export function followUser(id) {
+  return {
+    type: "@user/FOLLOW_USER",
+    payload: { id },
+  };
+}
+
+export function refreshSuggestUser() {
+  return {
+    type: "@user/REFRESH_SUGGEST_USER",
+  };
+}
+export function likeTweet(id) {
+  return {
+    type: "@user/LIKE_TWEET",
+    payload: { id },
+  };
+}

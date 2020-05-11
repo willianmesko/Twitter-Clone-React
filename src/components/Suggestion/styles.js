@@ -13,6 +13,7 @@ export const Container = styled.aside`
       align-items: baseline;
 
       a {
+        cursor: pointer;
         font-size: 12px;
         color: #3bb9e3;
         text-decoration: none;

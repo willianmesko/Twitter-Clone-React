@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import uuid from "react-uuid";
+
 import { Container, Content, NewTweets } from "./styles";
 import { NewTweet } from "../../store/modules/user/actions";
 import More from "../../assets/icons/more.svg";

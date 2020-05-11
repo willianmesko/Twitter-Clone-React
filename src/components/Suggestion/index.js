@@ -1,56 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  followUser,
+  refreshSuggestUser,
+} from "../../store/modules/user/actions";
 import { Container } from "./styles";
-import AvatarImg from "../../assets/images/avatar.png";
 
 export default function Suggestion() {
+  const dispatch = useDispatch();
+  const { suggestUsers } = useSelector((state) => state.user);
+  const [visible, setVisible] = useState(3);
   return (
     <Container>
-      <div class="widget follow">
-        <div class="title">
-          <strong>Who to follow</strong>
-          <a href="">Refresh</a>
-          <a href="">View all</a>
-        </div>
+      {suggestUsers.length > 0 && (
+        <div class="widget follow">
+          <div class="title">
+            <strong>Who to follow</strong>
+            <a onClick={() => dispatch(refreshSuggestUser())}>Refresh</a>
+            <a onClick={() => setVisible(visible + 3)}>View all</a>
+          </div>
 
-        <ul>
-          <li>
-            <div class="profile">
-              <img src={AvatarImg} alt="Avatar" />
-              <div class="info">
-                <strong>
-                  Spade <span>@spade.be</span>
-                </strong>
-                <button>Follow</button>
-              </div>
-            </div>
-            <a href="">x</a>
-          </li>
-          <li>
-            <div class="profile">
-              <img src={AvatarImg} alt="Avatar" />
-              <div class="info">
-                <strong>
-                  Spade <span>@spade.be</span>
-                </strong>
-                <button>Follow</button>
-              </div>
-            </div>
-            <a href="">x</a>
-          </li>
-          <li>
-            <div class="profile">
-              <img src={AvatarImg} alt="Avatar" />
-              <div class="info">
-                <strong>
-                  Spade <span>@spade.be</span>
-                </strong>
-                <button>Follow</button>
-              </div>
-            </div>
-            <a href="">x</a>
-          </li>
-        </ul>
-      </div>
+          <ul>
+            {suggestUsers.slice(0, visible).map((user) => {
+              return (
+                <li>
+                  <div class="profile">
+                    <img src={user.avatar} alt="Avatar" />
+                    <div class="info">
+                      <strong>
+                        {user.name} <span>{user.userName}</span>
+                      </strong>
+                      <button onClick={() => dispatch(followUser(user.id))}>
+                        Follow
+                      </button>
+                    </div>
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      )}
     </Container>
   );
 }

@@ -22,10 +22,11 @@ export const Container = styled.div`
     align-items: center;
     justify-content: center;
     color: #fff;
+  }
 
-    &:hover {
-      opacity: 0.7;
-    }
+  p {
+    right: 50px;
+    position: absolute;
   }
   input {
     display: none;

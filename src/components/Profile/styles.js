@@ -4,11 +4,26 @@ export const Content = styled.aside`
   width: 260px;
   img.avatar {
   }
+  .edit-user {
+    display: flex;
+    width: 100px;
+    background-color: blue;
 
-  h1 {
-    font-size: 21px;
-    color: #1f2226;
-    margin-top: 10px;
+    p {
+      display: none;
+    }
+
+    &:hover {
+      p {
+        display: flex;
+      }
+    }
+    h1 {
+      font-size: 21px;
+      color: #000;
+
+      margin-top: 0px;
+    }
   }
 
   span {
@@ -33,6 +48,11 @@ export const Content = styled.aside`
     display: flex;
     align-items: center;
     margin-top: 5px;
+
+    a {
+      text-decoration: none;
+      color: #657786;
+    }
 
     img {
       margin-right: 10px;

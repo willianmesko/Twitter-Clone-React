@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useSelector } from "react-redux";
 import { Content } from "./styles";
 import AvatarInput from "./AvatarInput";
@@ -12,24 +12,30 @@ import Images from "../../assets/icons/images.svg";
 
 export default function Profile() {
   const { name, userName, bio } = useSelector((state) => state.user);
+  const inputNameRef = useRef(null);
   return (
     <Content>
       <AvatarInput />
+
       <h1>{name}</h1>
+
       <span>{userName}</span>
       <p>{bio}</p>
       <ul class="list">
         <li>
-          <img src={Place} alt="Place" /> Namur, Belgium
+          <img src={Place} alt="Place" /> Porto Alegre - RS, Brazil
         </li>
         <li>
-          <img src={UrlProfile} alt="URL" /> exibit.be
+          <img src={UrlProfile} alt="URL" />
+          <a target="_blank" href="https://github.com/willianmesko/">
+            github.com/willianmesko/
+          </a>
         </li>
         <li>
           <img src={Joined} alt="Joined" /> Joined June 2007
         </li>
         <li>
-          <img src={Born} alt="Born" /> Born the 20th of June 1978
+          <img src={Born} alt="Born" /> Born the 20th of october 1994
         </li>
       </ul>
 

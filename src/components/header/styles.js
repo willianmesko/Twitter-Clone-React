@@ -30,7 +30,12 @@ export const Content = styled.div`
     font-size: 13px;
     color: #667580;
     margin-left: 30px;
+    cursor: pointer;
     font-weight: bold;
+
+    &:hover {
+      opacity: 0.7;
+    }
   }
 
   nav ul li img {
@@ -58,5 +63,6 @@ export const Side = styled.div`
     height: 34px;
     width: 34px;
     border-radius: 50%;
+    cursor: pointer;
   }
 `;
