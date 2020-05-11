@@ -71,7 +71,7 @@ export const Content = styled.div`
   }
 `;
 
-export const NewTweet = styled.div`
+export const NewTweets = styled.div`
   max-width: 1170px;
   display: flex;
   flex-direction: column;
@@ -81,24 +81,36 @@ export const NewTweet = styled.div`
 
   button {
     height: 34px;
-    background: white;
+    background: #3bb9e3;
     display: flex;
-    float: right;
+    margin-top: -20px;
+    z-index: 10;
     justify-content: center;
     width: 90px;
-
+    position: absolute;
+    outline: 0;
+    margin-left: 430px;
     font-weight: bold;
     font-size: 14px;
-    color: #3bb9e3;
-    border: 1px solid #3bb9e3;
+    color: #fff;
+
     border-radius: 16px;
-    margin-right: 20px;
   }
 
   textarea {
+    padding: 15px;
+    resize: none;
     outline: 0;
     height: 100px;
     width: 530px;
     border-radius: 5px;
+    border: 1px solid #e6ecf0;
+    font-size: 16px;
+
+    &::placeholder {
+      color: #666360;
+      font-size: 20px;
+      font-weight: bold;
+    }
   }
 `;

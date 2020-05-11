@@ -41,20 +41,6 @@ export const Content = styled.div`
 export const Side = styled.div`
   display: flex;
 
-  button {
-    height: 34px;
-    outline: 0px;
-    background: #3bb9e3;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 90px;
-    font-weight: bold;
-    font-size: 14px;
-    color: #fff;
-    border: 0;
-    border-radius: 16px;
-  }
   input {
     width: 220px;
     outline: 0px;
@@ -68,6 +54,7 @@ export const Side = styled.div`
     background: url("/images/search.svg") no-repeat 190px center;
   }
   img {
+    margin-left: 10px;
     height: 34px;
     width: 34px;
     border-radius: 50%;

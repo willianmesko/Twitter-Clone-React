@@ -9,9 +9,13 @@ const INITIAL_STATE = {
   cover: "",
   tweets: [
     { id: 0, text: "novo twite", likes: 0, comments: 0, replies: 0 },
-    { id: 1, text: "novo www" },
-    { id: 2, text: "novo w" },
+    { id: 1, text: "novo www", likes: 0, comments: 0, replies: 0 },
+    { id: 2, text: "novo w", likes: 0, comments: 0, replies: 0 },
   ],
+  tweetsCount: 3,
+  followers: 42,
+  following: 42,
+  favorites: 42,
 };
 
 export default function user(state = INITIAL_STATE, action) {
@@ -23,6 +27,12 @@ export default function user(state = INITIAL_STATE, action) {
       }
       case "@user/CHANGE_COVER": {
         draft.cover = action.payload.url;
+        break;
+      }
+
+      case "@user/NEW_TWEET": {
+        draft.tweets.push(action.payload.tweet);
+        draft.tweetsCount = draft.tweets.length;
         break;
       }
       default:

@@ -11,3 +11,10 @@ export function changeCover(url) {
     payload: { url },
   };
 }
+
+export function NewTweet(tweet) {
+  return {
+    type: "@user/NEW_TWEET",
+    payload: { tweet },
+  };
+}

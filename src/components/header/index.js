@@ -4,8 +4,10 @@ import Home from "../../assets/icons/home.svg";
 import Notification from "../../assets/icons/notification.svg";
 import Messages from "../../assets/icons/message.svg";
 import Logo from "../../assets/icons/logo.svg";
+import { useSelector } from "react-redux";
 
 export default function Header() {
+  const { avatar } = useSelector((state) => state.user);
   return (
     <Container>
       <Content>
@@ -25,8 +27,7 @@ export default function Header() {
         <img src={Logo} alt="Logo Twitter" />
         <Side>
           <input type="text" placeholder="Search on Twitter" />
-          <img src="images/avatar.png" alt="" />
-          <button>Tweet</button>
+          <img src={avatar} alt="avatar" />
         </Side>
       </Content>
     </Container>

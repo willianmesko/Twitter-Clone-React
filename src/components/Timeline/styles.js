@@ -65,8 +65,9 @@ border-bottom: 1px solid #e6ecf0;
           margin-left: 30px;
           img {
             margin-right: 5px;
-            width: 24px;
-            height: 24px;
+         
+            width: 18px;
+            height: 18px;
             border-radius: 50%;
           }
         }

@@ -28,13 +28,14 @@ export default function Timeline() {
                 <p>{tweet.text}</p>
                 <div class="actions">
                   <a href="">
-                    <img src={Comments} alt="Comments" /> 3
+                    <img src={Comments} alt="Comments" />
+                    {tweet.comments}
                   </a>
                   <a href="">
-                    <img src={Retweets} alt="Retweet" /> 4
+                    <img src={Retweets} alt="Retweet" /> {tweet.retweets}
                   </a>
                   <a href="">
-                    <img src={Likes} alt="Likes" /> 6
+                    <img src={Likes} alt="Likes" /> {tweet.likes}
                   </a>
                 </div>
               </div>
