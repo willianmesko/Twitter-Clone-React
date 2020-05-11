@@ -11,16 +11,6 @@ export const Container = styled.div`
       height: 88px;
     }
     input {
-      background: #fff;
-      border: 0;
-      border-radius: 4px;
-      height: 44px;
-      padding: 0 15px;
-      color: #000;
-      margin: 0 0 10px;
-      &::placeholder {
-        color: #000;
-      }
     }
     span {
       color: #f64c75;

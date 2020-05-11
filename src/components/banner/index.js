@@ -1,8 +1,8 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState } from "./node_modules/react";
 import { storage } from "../../firebase";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "./node_modules/react-redux";
 import { changeCover } from "../../store/modules/user/actions";
-import ReactLoading from "react-loading";
+import ReactLoading from "./node_modules/react-loading";
 
 import { Container } from "./styles";
 export default function Cover() {

@@ -1,28 +1,66 @@
-import React from "react";
+import React, { useCallback, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { updateProfile } from "../../store/modules/user/actions";
+import { Form } from "@unform/web";
+import { toast } from "react-toastify";
+import getValidationError from "../../utils/getValidationsErrors";
+import * as Yup from "yup";
 import AvatarInput from "../../components/Profile/AvatarInput";
+import Input from "../../components/Input";
 import { Container } from "./styles";
 
 export default function Profile() {
   const dispatch = useDispatch();
+  const formRef = useRef(null);
+  const { name, userName, bio, link } = useSelector((state) => state.user);
 
-  function handleSubmit(data) {}
+  const handleSubmit = useCallback(async (data) => {
+    const { name, username, bio, link } = data;
+    try {
+      const schema = Yup.object().shape({
+        name: Yup.string()
+          .required("Required name")
+          .min(5, "The Name must be at least 5 characters"),
+        username: Yup.string()
+          .required("Required userName")
+          .min(5, "The Username must be at least 5 characters"),
+        bio: Yup.string().min(
+          10,
+          "The Biography must be at least 5 characters"
+        ),
+        link: Yup.string(),
+      });
+      await schema.validate(data, {
+        abortEarly: false,
+      });
+
+      dispatch(updateProfile(name, username, bio, link));
+      toast.success("Updated profile");
+    } catch (error) {
+      const erros = getValidationError(error);
+      return formRef.current?.setErrors(erros);
+    }
+  }, []);
 
   return (
     <Container>
-      <form onSubmit={handleSubmit}>
+      <Form
+        ref={formRef}
+        initialData={{ name: name, username: userName, bio: bio, link: link }}
+        onSubmit={handleSubmit}
+      >
         <AvatarInput name="avatar_id" />
 
-        <input name="name" placeholder="Name" />
-        <input name="username" type="text" placeholder="Username" />
+        <Input name="name" placeholder="Name" />
+        <Input name="username" type="text" placeholder="Username" />
 
         <hr />
 
-        <input id="bio" type="text" placeholder="Biography" />
-        <input type="text" placeholder="Link" />
+        <Input name="bio" id="bio" type="text" placeholder="Biography" />
+        <Input name="link" type="text" placeholder="Link" />
 
         <button type="submit">Update perfil</button>
-      </form>
+      </Form>
     </Container>
   );
 }

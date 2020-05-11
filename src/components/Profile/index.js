@@ -11,7 +11,7 @@ import Followers from "../../assets/icons/followers.svg";
 import Images from "../../assets/icons/images.svg";
 
 export default function Profile() {
-  const { name, userName, bio } = useSelector((state) => state.user);
+  const { name, userName, bio, link } = useSelector((state) => state.user);
   const inputNameRef = useRef(null);
   return (
     <Content>
@@ -27,8 +27,8 @@ export default function Profile() {
         </li>
         <li>
           <img src={UrlProfile} alt="URL" />
-          <a target="_blank" href="https://github.com/willianmesko/">
-            github.com/willianmesko/
+          <a target="_blank" href={link}>
+            {link}
           </a>
         </li>
         <li>

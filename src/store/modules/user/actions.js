@@ -37,3 +37,10 @@ export function likeTweet(id) {
     payload: { id },
   };
 }
+
+export function updateProfile(name, username, bio, link) {
+  return {
+    type: "@user/UPDATE_PROFILE",
+    payload: { name, username, bio, link },
+  };
+}

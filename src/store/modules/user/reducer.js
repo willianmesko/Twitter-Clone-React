@@ -4,6 +4,7 @@ const INITIAL_STATE = {
   name: "willian Meswko",
   bio: "Software developer",
   userName: "Mesko",
+  link: "https://github.com/willianmesko/",
   avatar:
     "https://firebasestorage.googleapis.com/v0/b/firacode-twitter.appspot.com/o/images%2F26778884.jpeg?alt=media&token=d2d396a0-5cf0-434d-a048-dea78af79d7c",
   cover: "https://coverfiles.alphacoders.com/577/57739.png",
@@ -105,6 +106,14 @@ export default function user(state = INITIAL_STATE, action) {
         if (index >= 0) {
           draft.tweets[index].likes = draft.tweets[index].likes === 1 ? 0 : 1;
         }
+        break;
+      }
+      case "@user/UPDATE_PROFILE": {
+        draft.name = action.payload.name;
+        draft.userName = action.payload.username;
+        draft.bio = action.payload.bio;
+        draft.link = action.payload.link;
+
         break;
       }
 
