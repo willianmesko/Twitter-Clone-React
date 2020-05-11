@@ -1,5 +1,5 @@
 import React from "react";
-import Cover from "../../components/Banner";
+import Cover from "../../components/banner";
 import ActionBar from "../../components/ActionBar";
 import Profile from "../../components/Profile";
 import Timeline from "../../components/Timeline";
