@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container, Tweets, Tweet } from "./styles";
 import { useSelector } from "react-redux";
 import Comments from "../../assets/icons/comments.svg";
@@ -7,6 +7,7 @@ import Likes from "../../assets/icons/like.svg";
 
 export default function Timeline() {
   const { name, avatar, tweets } = useSelector((state) => state.user);
+  const [visible, setVisible] = useState(3);
   return (
     <Container>
       <nav>
@@ -18,7 +19,7 @@ export default function Timeline() {
       </nav>
       <Tweets>
         {tweets &&
-          tweets.map((tweet) => (
+          tweets.slice(0, visible).map((tweet) => (
             <Tweet>
               <img src={avatar} alt="Avatar" />
               <div class="info">
@@ -42,6 +43,9 @@ export default function Timeline() {
             </Tweet>
           ))}
       </Tweets>
+      {visible < tweets.length && (
+        <button onClick={() => setVisible(visible + 5)}>Loading More</button>
+      )}
     </Container>
   );
 }

@@ -4,6 +4,21 @@ export const Container = styled.section`
   flex: 1;
   background: #fff;
   margin: 150px 20px 0;
+  button {
+    height: 27px;
+    margin: 20px 20px 10px 190px;
+    background: white;
+
+    align-self: center;
+
+    width: 110px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #3bb9e3;
+    border: 1px solid #3bb9e3;
+    border-radius: 16px;
+    margin-top: 4px;
+  }
 
   nav {
     border-bottom: 1px solid #e6ecf0;

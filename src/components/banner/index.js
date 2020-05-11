@@ -1,16 +1,19 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { storage } from "../../firebase";
 import { useSelector, useDispatch } from "react-redux";
 import { changeCover } from "../../store/modules/user/actions";
+import ReactLoading from "react-loading";
 
 import { Container } from "./styles";
 export default function Cover() {
   const { cover } = useSelector((state) => state.user);
+  const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
   const coverRef = useRef(null);
 
   const handleImage = (e) => {
     if (e.target.files[0]) {
+      setLoading(true);
       let name = e.target.files[0].name;
       const uploadTask = storage
         .ref(`images/${e.target.files[0].name}`)
@@ -26,6 +29,7 @@ export default function Cover() {
             .getDownloadURL()
             .then((url) => {
               dispatch(changeCover(url));
+              setLoading(false);
             });
         }
       );
@@ -34,8 +38,19 @@ export default function Cover() {
   return (
     <Container>
       <div onClick={() => coverRef.current.click()}>
-        <img src={cover} alt="cover" />
-
+        {loading ? (
+          <div className="loading">
+            <ReactLoading
+              className="loading spinner"
+              type="spinningBubbles"
+              color="#9a9a9a"
+              height="50px"
+              width="50px"
+            />
+          </div>
+        ) : (
+          <img src={cover} alt="cover" />
+        )}
         <input
           onChange={handleImage}
           ref={coverRef}

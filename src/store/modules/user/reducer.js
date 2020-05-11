@@ -32,6 +32,10 @@ export default function user(state = INITIAL_STATE, action) {
 
       case "@user/NEW_TWEET": {
         draft.tweets.push(action.payload.tweet);
+        const index = draft.tweets.length - 1;
+        draft.tweets[index].comments = 0;
+        draft.tweets[index].likes = 0;
+        draft.tweets[index].replies = 0;
         draft.tweetsCount = draft.tweets.length;
         break;
       }

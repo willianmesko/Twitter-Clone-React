@@ -1,8 +1,19 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  z-index: 3;
+  .loading {
+    height: 380px;
+    width: 100%;
+
+    background: #3bb9e3;
+
+    .spinner {
+      margin: 0 auto;
+      padding-top: 15%;
+    }
+  }
   img {
+    z-index: 50;
     cursor: pointer;
     height: 380px;
     width: 100%;

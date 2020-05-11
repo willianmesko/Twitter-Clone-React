@@ -9,9 +9,6 @@ export default function ActionBar() {
   const [tweet, setTweet] = useState({
     id: "",
     text: "",
-    likes: 0,
-    comments: 0,
-    replies: 0,
   });
   const { tweetsCount, followers, following, favorites } = useSelector(
     (state) => state.user
@@ -19,7 +16,7 @@ export default function ActionBar() {
   const dispatch = useDispatch();
   const handleTweet = (e) => {
     e.preventDefault();
-    if (tweet) {
+    if (tweet.text.length > 0) {
       dispatch(NewTweet(tweet));
       setTweet({ id: "", text: "" });
     }

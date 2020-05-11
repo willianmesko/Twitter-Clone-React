@@ -43,6 +43,21 @@ export const Content = styled.div`
       align-items: center;
       padding: 0 15px;
       position: relative;
+      cursor: pointer;
+      &:hover {
+        opacity: 0.9;
+        border: 1px solid #e6ecf0;
+
+        ::after {
+          content: "";
+          width: 100%;
+          height: 2px;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          background: #3bb9e3;
+        }
+      }
 
       span {
         color: #667580;
