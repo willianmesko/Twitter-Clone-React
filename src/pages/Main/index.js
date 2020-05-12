@@ -13,7 +13,6 @@ function Main() {
       <ActionBar />
       <Content>
         <Profile />
-
         <Timeline />
         <Suggestion />
       </Content>

@@ -26,7 +26,7 @@ export default function Profile() {
             .min(5, "The Username must be at least 5 characters"),
           bio: Yup.string().min(
             10,
-            "The Biography must be at least 5 characters"
+            "The Biography must be at least 10 characters"
           ),
           link: Yup.string(),
         });

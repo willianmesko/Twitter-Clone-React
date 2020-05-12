@@ -56,7 +56,7 @@ export default function Cover() {
               onClick={() => coverRef.current.click()}
             >
               <p>
-                <IoMdPhotos /> {""}
+                <IoMdPhotos />
                 Change the cover photo
               </p>
             </div>

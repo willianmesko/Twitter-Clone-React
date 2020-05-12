@@ -1,7 +1,6 @@
 import React, { useState, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import uuid from "react-uuid";
-
 import { Container, Content, NewTweets } from "./styles";
 import { NewTweet } from "../../store/modules/user/actions";
 import More from "../../assets/icons/more.svg";
@@ -11,11 +10,14 @@ export default function ActionBar() {
     id: "",
     text: "",
   });
+
   const { followers, following, favorites, tweets } = useSelector(
     (state) => state.user
   );
   const dispatch = useDispatch();
+
   const tweetsCount = useMemo(() => tweets.length, [tweets]);
+
   const handleTweet = (e) => {
     e.preventDefault();
     if (tweet.text.length > 0) {
@@ -23,6 +25,7 @@ export default function ActionBar() {
       setTweet({ id: "", text: "" });
     }
   };
+
   return (
     <Container>
       <Content>

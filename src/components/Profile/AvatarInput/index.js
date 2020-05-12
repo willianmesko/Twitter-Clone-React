@@ -11,7 +11,7 @@ const AvatarInput = () => {
   const dispatch = useDispatch();
   const inputRef = useRef(null);
 
-  const handleImage = (e) => {
+  const uploadImage = (e) => {
     if (e.target.files[0]) {
       setLoading(true);
       let name = e.target.files[0].name;
@@ -47,7 +47,7 @@ const AvatarInput = () => {
 
         <input
           ref={inputRef}
-          onChange={handleImage}
+          onChange={uploadImage}
           type="file"
           accept="image/*"
         />
