@@ -10,7 +10,7 @@ import Liked from "../../assets/icons/liked.svg";
 export default function Timeline() {
   const dispatch = useDispatch();
   const { name, avatar, tweets, medias } = useSelector((state) => state.user);
-  const [visible, setVisible] = useState(4);
+  const [visible, setVisible] = useState(6);
   return (
     <Container>
       <Tabs>
@@ -25,25 +25,25 @@ export default function Timeline() {
           <Tweets>
             {tweets &&
               tweets.slice(0, visible).map((tweet) => (
-                <Tweet>
+                <Tweet key={tweet.id}>
                   <img src={avatar} alt="Avatar" />
-                  <div class="info">
+                  <div className="info">
                     <strong>
                       {name} <span>@Mesko</span>
                     </strong>
                     <p>{tweet.text}</p>
-                    <div class="actions">
-                      <a href="">
+                    <div className="actions">
+                      <p>
                         <img src={Comments} alt="Comments" />
                         {tweet.comments}
-                      </a>
-                      <a href="">
+                      </p>
+                      <p>
                         <img src={Retweets} alt="Retweet" /> {tweet.retweets}
-                      </a>
-                      <a onClick={() => dispatch(likeTweet(tweet.id))}>
+                      </p>
+                      <p onClick={() => dispatch(likeTweet(tweet.id))}>
                         <img src={tweet.likes > 0 ? Liked : Like} alt="Likes" />{" "}
                         {tweet.likes}
-                      </a>
+                      </p>
                     </div>
                   </div>
                 </Tweet>
@@ -61,8 +61,8 @@ export default function Timeline() {
             <ul>
               {medias &&
                 medias.slice(0, visible).map((media) => (
-                  <li>
-                    <img src={media.image} />
+                  <li key={media.id}>
+                    <img src={media.image} alt={media.image} />
                   </li>
                 ))}
             </ul>

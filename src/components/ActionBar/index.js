@@ -27,7 +27,7 @@ export default function ActionBar() {
     <Container>
       <Content>
         <ul>
-          <li class="active">
+          <li className="active">
             <span>Tweets</span>
             <strong>{tweetsCount}</strong>
           </li>
@@ -44,7 +44,7 @@ export default function ActionBar() {
             <strong>{favorites}</strong>
           </li>
         </ul>
-        <div class="actions">
+        <div className="actions">
           <img src={More} alt="More" />
         </div>
       </Content>

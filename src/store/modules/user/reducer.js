@@ -1,7 +1,10 @@
 import produce from "immer";
-import Avatar from "../../../assets/images/avatar.png";
+import Alan from "../../../assets/images/Alan.jpg";
+import Grace from "../../../assets/images/Grace.jpeg";
+
 import Airplane from "../../../assets/images/airplane.jpeg";
 import Ada from "../../../assets/images/ada.jpg";
+import Cover from "../../../assets/images/Cover.jpg";
 const INITIAL_STATE = {
   name: "willian Mesko",
   bio: "Software developer",
@@ -9,11 +12,44 @@ const INITIAL_STATE = {
   link: "https://github.com/willianmesko/",
   avatar:
     "https://firebasestorage.googleapis.com/v0/b/firacode-twitter.appspot.com/o/images%2F26778884.jpeg?alt=media&token=d2d396a0-5cf0-434d-a048-dea78af79d7c",
-  cover: "https://coverfiles.alphacoders.com/577/57739.png",
+  cover: Cover,
   tweets: [
-    { id: 0, text: "novo twite", likes: 1, comments: 10, replies: 30 },
-    { id: 1, text: "novo www", likes: 0, comments: 0, replies: 0 },
-    { id: 2, text: "novo w", likes: 1, comments: 4, replies: 3 },
+    {
+      id: 0,
+      text: "Testing my twitter clone",
+      likes: 1,
+      comments: 10,
+      replies: 30,
+    },
+    {
+      id: 1,
+      text: "you can like this tweet",
+      likes: 0,
+      comments: 0,
+      replies: 0,
+    },
+    {
+      id: 2,
+      text: "change profile and cover photo",
+      likes: 1,
+      comments: 4,
+      replies: 3,
+    },
+    {
+      id: 3,
+      text:
+        "change your username on the profile page /profile, and follow the users in the suggestion box",
+      likes: 1,
+      comments: 4,
+      replies: 3,
+    },
+    {
+      id: 4,
+      text: "... and access your photos in the media tab",
+      likes: 0,
+      comments: 0,
+      replies: 0,
+    },
   ],
 
   followers: 42,
@@ -22,11 +58,11 @@ const INITIAL_STATE = {
 
   suggestUsers: [
     { id: 0, avatar: Ada, name: "Ada", userName: "@lovelace" },
-    { id: 1, avatar: Ada, name: "Ada", userName: "@lovelace" },
-    { id: 2, avatar: Ada, name: "Ada", userName: "@lovelace" },
+    { id: 1, avatar: Grace, name: "Grace", userName: "@hooper" },
+    { id: 2, avatar: Alan, name: "Alan", userName: "@turing" },
     { id: 3, avatar: Ada, name: "Ada", userName: "@lovelace" },
-    { id: 4, avatar: Ada, name: "Ada", userName: "@lovelace" },
-    { id: 5, avatar: Ada, name: "Ada", userName: "@lovelace" },
+    { id: 4, avatar: Grace, name: "Grace", userName: "@hooper" },
+    { id: 5, avatar: Alan, name: "Alan", userName: "@turing" },
   ],
 
   medias: [

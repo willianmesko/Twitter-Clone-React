@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { updateProfile } from "../../store/modules/user/actions";
 import { Form } from "@unform/web";
 import { toast } from "react-toastify";
-import getValidationError from "../../utils/getValidationsErrors";
 import * as Yup from "yup";
 import AvatarInput from "../../components/Profile/AvatarInput";
 import Input from "../../components/Input";
@@ -14,30 +13,33 @@ export default function Profile() {
   const formRef = useRef(null);
   const { name, userName, bio, link } = useSelector((state) => state.user);
 
-  const handleSubmit = useCallback(async (data) => {
-    const { name, username, bio, link } = data;
-    try {
-      const schema = Yup.object().shape({
-        name: Yup.string()
-          .required("Required name")
-          .min(5, "The Name must be at least 5 characters"),
-        username: Yup.string()
-          .required("Required username")
-          .min(5, "The Username must be at least 5 characters"),
-        bio: Yup.string().min(
-          10,
-          "The Biography must be at least 5 characters"
-        ),
-        link: Yup.string(),
-      });
-      await schema.validate(data);
+  const handleSubmit = useCallback(
+    async (data) => {
+      const { name, username, bio, link } = data;
+      try {
+        const schema = Yup.object().shape({
+          name: Yup.string()
+            .required("Required name")
+            .min(5, "The Name must be at least 5 characters"),
+          username: Yup.string()
+            .required("Required username")
+            .min(5, "The Username must be at least 5 characters"),
+          bio: Yup.string().min(
+            10,
+            "The Biography must be at least 5 characters"
+          ),
+          link: Yup.string(),
+        });
+        await schema.validate(data);
 
-      dispatch(updateProfile(name, username, bio, link));
-      toast.success("Updated profile");
-    } catch (error) {
-      toast.error(error.errors[0]);
-    }
-  }, []);
+        dispatch(updateProfile(name, username, bio, link));
+        toast.success("Updated profile");
+      } catch (error) {
+        toast.error(error.errors[0]);
+      }
+    },
+    [dispatch]
+  );
 
   return (
     <Container>

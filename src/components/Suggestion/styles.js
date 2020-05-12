@@ -12,7 +12,7 @@ export const Container = styled.aside`
       display: flex;
       align-items: baseline;
 
-      a {
+      p {
         cursor: pointer;
         font-size: 12px;
         color: #3bb9e3;
@@ -20,7 +20,7 @@ export const Container = styled.aside`
         position: relative;
         padding-left: 10px;
       }
-      a::before {
+      p::before {
         content: "";
         width: 2px;
         height: 2px;
@@ -70,6 +70,7 @@ export const Container = styled.aside`
               }
             }
             button {
+              outline: 0;
               height: 27px;
               background: white;
               display: flex;

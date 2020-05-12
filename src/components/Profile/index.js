@@ -22,13 +22,13 @@ export default function Profile() {
       <h1>{name}</h1>
       <span>{userName}</span>
       <p>{bio}</p>
-      <ul class="list">
+      <ul className="list">
         <li>
           <img src={Place} alt="Place" /> Porto Alegre - RS, Brazil
         </li>
         <li>
           <img src={UrlProfile} alt="URL" />
-          <a target="_blank" href={link}>
+          <a rel="noopener noreferrer" target="_blank" href={link}>
             {link}
           </a>
         </li>
@@ -40,7 +40,7 @@ export default function Profile() {
         </li>
       </ul>
 
-      <div class="followers">
+      <div className="followers">
         <strong>
           <img src={Followers} alt="Followers" /> {followers} followers that you
           know
@@ -48,39 +48,39 @@ export default function Profile() {
 
         <ul>
           <li>
-            <img src={Follower} />
+            <img src={Follower} alt="followers" />
           </li>
           <li>
-            <img src={Follower} />
+            <img src={Follower} alt="followers" />
           </li>
           <li>
-            <img src={Follower} />
+            <img src={Follower} alt="followers" />
           </li>
           <li>
-            <img src={Follower} />
+            <img src={Follower} alt="followers" />
           </li>
           <li>
-            <img src={Follower} />
+            <img src={Follower} alt="followers" />
           </li>
           <li>
-            <img src={Follower} />
+            <img src={Follower} alt="followers" />
           </li>
           <li>
-            <img src={Follower} />
+            <img src={Follower} alt="followers" />
           </li>
           <li>
-            <img src={Follower} />
+            <img src={Follower} alt="followers" />
           </li>
           <li>
-            <img src={Follower} />
+            <img src={Follower} alt="followers" />
           </li>
           <li>
-            <img src={Follower} />
+            <img src={Follower} alt="followers" />
           </li>
         </ul>
       </div>
 
-      <div class="images">
+      <div className="images">
         <strong>
           <img src={Images} alt="Images" /> 266 Photos and videos
         </strong>
@@ -88,7 +88,7 @@ export default function Profile() {
           {medias &&
             medias.map((media) => (
               <li key={media.id}>
-                <img src={media.image} />{" "}
+                <img src={media.image} alt={media.image} />
               </li>
             ))}
         </ul>

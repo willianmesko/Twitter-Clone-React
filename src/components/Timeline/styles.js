@@ -98,11 +98,11 @@ export const Tweet = styled.li`
     .actions {
       display: flex;
       margin-top: 20px;
-      a:first-child {
+      p:first-child {
         margin-left: 0;
       }
 
-      a {
+      p {
         cursor: pointer;
         display: flex;
         align-items: center;

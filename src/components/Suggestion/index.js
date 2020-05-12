@@ -13,20 +13,20 @@ export default function Suggestion() {
   return (
     <Container>
       {suggestUsers.length > 0 && (
-        <div class="widget follow">
-          <div class="title">
+        <div className="widget follow">
+          <div className="title">
             <strong>Who to follow</strong>
-            <a onClick={() => dispatch(refreshSuggestUser())}>Refresh</a>
-            <a onClick={() => setVisible(visible + 3)}>View all</a>
+            <p onClick={() => dispatch(refreshSuggestUser())}>Refresh</p>
+            <p onClick={() => setVisible(visible + 3)}>View all</p>
           </div>
 
           <ul>
             {suggestUsers.slice(0, visible).map((user) => {
               return (
-                <li>
-                  <div class="profile">
+                <li key={user.id}>
+                  <div className="profile">
                     <img src={user.avatar} alt="Avatar" />
-                    <div class="info">
+                    <div className="info">
                       <strong>
                         {user.name} <span>{user.userName}</span>
                       </strong>
