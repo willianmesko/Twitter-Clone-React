@@ -7,6 +7,7 @@ export const Container = styled.div`
     z-index: 3;
 
     img {
+      cursor: pointer;
       width: 200px;
       height: 200px;
       border-radius: 50%;

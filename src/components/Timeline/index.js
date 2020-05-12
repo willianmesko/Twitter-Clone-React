@@ -9,7 +9,9 @@ import Like from "../../assets/icons/like.svg";
 import Liked from "../../assets/icons/liked.svg";
 export default function Timeline() {
   const dispatch = useDispatch();
-  const { name, avatar, tweets, medias } = useSelector((state) => state.user);
+  const { name, userName, avatar, tweets, medias } = useSelector(
+    (state) => state.user
+  );
   const [visible, setVisible] = useState(6);
   return (
     <Container>
@@ -29,7 +31,7 @@ export default function Timeline() {
                   <img src={avatar} alt="Avatar" />
                   <div className="info">
                     <strong>
-                      {name} <span>@Mesko</span>
+                      {name} <span>@{userName}</span>
                     </strong>
                     <p>{tweet.text}</p>
                     <div className="actions">

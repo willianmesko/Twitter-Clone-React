@@ -66,9 +66,13 @@ export const Container = styled.section`
         margin: 0 5px 5px 0;
 
         img {
+          cursor: pointer;
           border-radius: 8px;
           height: 200px;
           width: 200px;
+          &:hover {
+            opacity: 0.7;
+          }
         }
       }
     }
@@ -85,9 +89,14 @@ export const Tweet = styled.li`
   display: flex;
 
   img {
+    cursor: pointer;
     width: 48px;
     height: 48px;
     border-radius: 50%;
+
+    &:hover {
+      opacity: 0.7;
+    }
   }
 
   .info {

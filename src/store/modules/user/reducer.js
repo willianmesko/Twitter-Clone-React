@@ -38,7 +38,7 @@ const INITIAL_STATE = {
     {
       id: 3,
       text:
-        "change your username on the profile page /profile, and follow the users in the suggestion box",
+        "change your username on the profile page '/profile', and follow the users in the suggestion box",
       likes: 1,
       comments: 4,
       replies: 3,
