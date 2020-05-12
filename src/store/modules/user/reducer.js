@@ -1,12 +1,12 @@
 import produce from "immer";
 import Alan from "../../../assets/images/Alan.jpg";
 import Grace from "../../../assets/images/Grace.jpeg";
-
 import Airplane from "../../../assets/images/airplane.jpeg";
 import Ada from "../../../assets/images/ada.jpg";
 import Cover from "../../../assets/images/Cover.jpg";
+
 const INITIAL_STATE = {
-  name: "willian Mesko",
+  name: "Willian Mesko",
   bio: "Software developer",
   userName: "Mesko",
   link: "https://github.com/willianmesko/",
@@ -106,7 +106,7 @@ export default function user(state = INITIAL_STATE, action) {
       }
 
       case "@user/NEW_TWEET": {
-        draft.tweets.push(action.payload.tweet);
+        draft.tweets.unshift(action.payload.tweet);
         const index = draft.tweets.length - 1;
         draft.tweets[index].comments = 0;
         draft.tweets[index].likes = 0;
