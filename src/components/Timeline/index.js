@@ -62,7 +62,7 @@ export default function Timeline() {
           <div className="medias">
             <ul>
               {medias &&
-                medias.slice(0, visible).map((media) => (
+                medias.slice(0, visible - 2).map((media) => (
                   <li key={media.id}>
                     <img src={media.image} alt={media.image} />
                   </li>
@@ -70,7 +70,7 @@ export default function Timeline() {
             </ul>
           </div>
           {visible < medias.length && (
-            <button onClick={() => setVisible(visible + 3)}>
+            <button onClick={() => setVisible(visible - 2 + 3)}>
               Loading More
             </button>
           )}

@@ -107,10 +107,10 @@ export default function user(state = INITIAL_STATE, action) {
 
       case "@user/NEW_TWEET": {
         draft.tweets.unshift(action.payload.tweet);
-        const index = draft.tweets.length - 1;
-        draft.tweets[index].comments = 0;
-        draft.tweets[index].likes = 0;
-        draft.tweets[index].replies = 0;
+
+        draft.tweets[0].comments = 0;
+        draft.tweets[0].likes = 0;
+        draft.tweets[0].replies = 0;
 
         break;
       }

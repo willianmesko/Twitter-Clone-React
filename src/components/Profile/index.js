@@ -18,10 +18,11 @@ export default function Profile() {
   return (
     <Content>
       <AvatarInput />
-
-      <h1>{name}</h1>
-      <span>{userName}</span>
-      <p>{bio}</p>
+      <div className="userInfo">
+        <h1>{name}</h1>
+        <span>@{userName}</span>
+        <p>{bio}</p>
+      </div>
       <ul className="list">
         <li>
           <img src={Place} alt="Place" /> Porto Alegre - RS, Brazil

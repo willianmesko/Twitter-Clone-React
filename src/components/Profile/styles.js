@@ -2,6 +2,9 @@ import styled from "styled-components";
 
 export const Content = styled.aside`
   width: 260px;
+  .userInfo {
+    padding-top: 0;
+  }
   img.avatar {
   }
   .edit-user {
@@ -38,7 +41,6 @@ export const Content = styled.aside`
   }
 
   ul {
-    margin-top: 20px;
     list-style: none;
   }
 
@@ -48,7 +50,6 @@ export const Content = styled.aside`
     color: #657786;
     display: flex;
     align-items: center;
-    margin-top: 5px;
 
     a {
       text-decoration: none;
