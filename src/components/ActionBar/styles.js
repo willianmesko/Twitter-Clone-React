@@ -120,7 +120,7 @@ export const NewTweets = styled.div`
     width: 530px;
     border-radius: 5px;
     border: 1px solid #e6ecf0;
-    font-size: 16px;
+    font-size: 17px;
 
     &::placeholder {
       color: #666360;
