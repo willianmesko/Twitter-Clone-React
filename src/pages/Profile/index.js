@@ -22,7 +22,7 @@ export default function Profile() {
           .required("Required name")
           .min(5, "The Name must be at least 5 characters"),
         username: Yup.string()
-          .required("Required userName")
+          .required("Required username")
           .min(5, "The Username must be at least 5 characters"),
         bio: Yup.string().min(
           10,
@@ -30,15 +30,12 @@ export default function Profile() {
         ),
         link: Yup.string(),
       });
-      await schema.validate(data, {
-        abortEarly: false,
-      });
+      await schema.validate(data);
 
       dispatch(updateProfile(name, username, bio, link));
       toast.success("Updated profile");
     } catch (error) {
-      const erros = getValidationError(error);
-      return formRef.current?.setErrors(erros);
+      toast.error(error.errors[0]);
     }
   }, []);
 

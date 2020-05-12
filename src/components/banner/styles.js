@@ -14,7 +14,7 @@ export const Container = styled.div`
   }
   img {
     z-index: 50;
-    cursor: pointer;
+
     height: 380px;
     width: 100%;
     background: #3bb9e3;
@@ -24,9 +24,23 @@ export const Container = styled.div`
     color: #fff;
   }
 
-  p {
+  .changeCover {
+    z-index: 10;
+    cursor: pointer;
     right: 50px;
     position: absolute;
+    color: #000;
+    padding: 2px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 2px;
+    height: 22px;
+    background-color: #fff;
+    opacity: 0.6;
+
+    &:hover {
+      opacity: 0.4;
+    }
   }
   input {
     display: none;

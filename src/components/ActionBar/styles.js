@@ -87,12 +87,12 @@ export const Content = styled.div`
 `;
 
 export const NewTweets = styled.div`
-  max-width: 1170px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-left: 80px;
-  margin: 10px 0 0 0;
+  justify-content: center;
+  padding-right: 20px;
+  margin: 25px auto;
 
   button {
     height: 34px;

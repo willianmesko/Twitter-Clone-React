@@ -42,8 +42,9 @@ export const Content = styled.aside`
     list-style: none;
   }
 
-  ul.list li {
+  .list li {
     font-size: 14px;
+    padding-top: 3px;
     color: #657786;
     display: flex;
     align-items: center;
@@ -63,6 +64,10 @@ export const Content = styled.aside`
   }
 
   .followers {
+    margin-top: 4px;
+    strong {
+      color: #657786;
+    }
     ul {
       list-style: none;
       display: flex;
@@ -70,13 +75,35 @@ export const Content = styled.aside`
       align-content: flex-start;
       align-items: flex-start;
 
-      li {
+      img {
         height: 45px;
         width: 45px;
         background: #d0d5d9;
         border-radius: 50%;
         flex: 1 0 auto;
         margin: 0 5px 10px 0;
+      }
+    }
+  }
+  .images {
+    margin-top: 4px;
+    strong {
+      color: #657786;
+    }
+    ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      align-content: flex-start;
+      align-items: flex-start;
+
+      img {
+        height: 80px;
+        width: 80px;
+        background: #d0d5d9;
+        border-radius: 8px;
+        flex-shrink: 0;
+        margin: 0 5px 5px 0;
       }
     }
   }

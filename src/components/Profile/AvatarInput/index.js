@@ -1,15 +1,19 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { Container } from "./styles";
 import { storage } from "../../../firebase";
 import { useSelector, useDispatch } from "react-redux";
 import { changeAvatar } from "../../../store/modules/user/actions";
+import { IoMdPhotos } from "react-icons/io";
+import Loading from "../../../assets/images/loading.gif";
 const AvatarInput = () => {
+  const [loading, setLoading] = useState(false);
   const { avatar } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const inputRef = useRef(null);
 
   const handleImage = (e) => {
     if (e.target.files[0]) {
+      setLoading(true);
       let name = e.target.files[0].name;
       const uploadTask = storage
         .ref(`images/${e.target.files[0].name}`)
@@ -27,6 +31,7 @@ const AvatarInput = () => {
             .getDownloadURL()
             .then((url) => {
               dispatch(changeAvatar(url));
+              setLoading(false);
             });
         }
       );
@@ -34,8 +39,11 @@ const AvatarInput = () => {
   };
   return (
     <Container>
-      <div onClick={() => inputRef.current.click()}>
-        <img src={avatar} alt="avatar" />
+      <div>
+        <img src={loading ? Loading : avatar} alt="avatar" />
+        <span onClick={() => inputRef.current.click()}>
+          <IoMdPhotos size={25} />
+        </span>
 
         <input
           ref={inputRef}

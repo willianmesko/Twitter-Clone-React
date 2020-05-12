@@ -1,8 +1,8 @@
-import React, { useRef } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import { Content } from "./styles";
 import AvatarInput from "./AvatarInput";
-
+import Follower from "../../assets/images/walter.jpg";
 import Place from "../../assets/icons/place.svg";
 import UrlProfile from "../../assets/icons/url.svg";
 import Joined from "../../assets/icons/joined.svg";
@@ -11,14 +11,15 @@ import Followers from "../../assets/icons/followers.svg";
 import Images from "../../assets/icons/images.svg";
 
 export default function Profile() {
-  const { name, userName, bio, link } = useSelector((state) => state.user);
-  const inputNameRef = useRef(null);
+  const { name, userName, bio, link, followers, medias } = useSelector(
+    (state) => state.user
+  );
+
   return (
     <Content>
       <AvatarInput />
 
       <h1>{name}</h1>
-
       <span>{userName}</span>
       <p>{bio}</p>
       <ul class="list">
@@ -41,35 +42,55 @@ export default function Profile() {
 
       <div class="followers">
         <strong>
-          <img src={Followers} alt="Followers" /> 73 followers that you know
+          <img src={Followers} alt="Followers" /> {followers} followers that you
+          know
         </strong>
 
         <ul>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
+          <li>
+            <img src={Follower} />
+          </li>
+          <li>
+            <img src={Follower} />
+          </li>
+          <li>
+            <img src={Follower} />
+          </li>
+          <li>
+            <img src={Follower} />
+          </li>
+          <li>
+            <img src={Follower} />
+          </li>
+          <li>
+            <img src={Follower} />
+          </li>
+          <li>
+            <img src={Follower} />
+          </li>
+          <li>
+            <img src={Follower} />
+          </li>
+          <li>
+            <img src={Follower} />
+          </li>
+          <li>
+            <img src={Follower} />
+          </li>
         </ul>
       </div>
 
-      <div class="widget images">
+      <div class="images">
         <strong>
           <img src={Images} alt="Images" /> 266 Photos and videos
         </strong>
-
         <ul>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
+          {medias &&
+            medias.map((media) => (
+              <li key={media.id}>
+                <img src={media.image} />{" "}
+              </li>
+            ))}
         </ul>
       </div>
     </Content>

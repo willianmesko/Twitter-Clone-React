@@ -32,6 +32,10 @@ export const Content = styled.div`
     margin-left: 30px;
     cursor: pointer;
     font-weight: bold;
+    a {
+      text-decoration: none;
+      color: #667580;
+    }
 
     &:hover {
       opacity: 0.7;

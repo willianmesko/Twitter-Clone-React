@@ -8,7 +8,11 @@ export const StyledInput = styled.input`
   padding: 0 15px;
   color: #000;
   margin: 0 0 10px;
+
   &::placeholder {
     color: #000;
+  }
+  &:focus {
+    border: 1px solid #3b9eff;
   }
 `;

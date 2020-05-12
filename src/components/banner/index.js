@@ -3,6 +3,7 @@ import { storage } from "../../firebase";
 import { useSelector, useDispatch } from "react-redux";
 import { changeCover } from "../../store/modules/user/actions";
 import ReactLoading from "react-loading";
+import { IoMdPhotos } from "react-icons/io";
 
 import { Container } from "./styles";
 export default function Cover() {
@@ -37,7 +38,7 @@ export default function Cover() {
   };
   return (
     <Container>
-      <div onClick={() => coverRef.current.click()}>
+      <div>
         {loading ? (
           <div className="loading">
             <ReactLoading
@@ -50,7 +51,16 @@ export default function Cover() {
           </div>
         ) : (
           <>
-            <p>troque a iimagem</p>
+            <div
+              className="changeCover"
+              onClick={() => coverRef.current.click()}
+            >
+              <p>
+                <IoMdPhotos /> {""}
+                Change the cover photo
+              </p>
+            </div>
+
             <img src={cover} alt="cover" />
           </>
         )}
