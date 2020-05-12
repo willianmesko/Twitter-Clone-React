@@ -127,5 +127,8 @@ export const NewTweets = styled.div`
       font-size: 20px;
       font-weight: bold;
     }
+    &:focus {
+      border: 1px solid #3bb9e3;
+    }
   }
 `;
