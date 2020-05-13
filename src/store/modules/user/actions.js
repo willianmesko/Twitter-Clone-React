@@ -32,9 +32,23 @@ export function updateProfile(name, username, bio, link) {
   };
 }
 
-export function setTweetsCount(count) {
+export function setTweets(tweets) {
   return {
-    type: "@user/SET_TWEETS_COUNT",
-    payload: { count },
+    type: "@user/SET_TWEETS",
+    payload: { tweets },
+  };
+}
+
+export function newTweet(tweet) {
+  return {
+    type: "@user/NEW_TWEET",
+    payload: { tweet },
+  };
+}
+
+export function LikeTweet(id) {
+  return {
+    type: "@user/LIKE_TWEET",
+    payload: { id },
   };
 }

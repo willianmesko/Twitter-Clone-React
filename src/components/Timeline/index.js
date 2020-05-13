@@ -3,15 +3,17 @@ import { db } from "../../firebase";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import { Container, Tweets, Tweet } from "./styles";
 import { useSelector, useDispatch } from "react-redux";
-import { setTweetsCount } from "../../store/modules/user/actions";
+import { setTweets, LikeTweet } from "../../store/modules/user/actions";
 import Comments from "../../assets/icons/comments.svg";
 import Retweets from "../../assets/icons/retweet.svg";
 import Like from "../../assets/icons/like.svg";
 import Liked from "../../assets/icons/liked.svg";
 export default function Timeline() {
   const dispatch = useDispatch();
-  const { name, userName, avatar, medias } = useSelector((state) => state.user);
-  const [tweets, setTweets] = useState([]);
+  const { name, userName, avatar, medias, tweets } = useSelector(
+    (state) => state.user
+  );
+
   const [visible, setVisible] = useState(6);
 
   useEffect(() => {
@@ -20,19 +22,9 @@ export default function Timeline() {
       .get()
       .then((querySnapshot) => {
         const data = querySnapshot.docs.map((doc) => doc.data());
-        setTweets(data);
-        dispatch(setTweetsCount(data.length));
+        if (data.length > 0) dispatch(setTweets(data));
       });
   }, [tweets, dispatch]);
-
-  const likeTweet = (id) => {
-    const tweetRef = db.collection("tweets").doc(id);
-    tweetRef.get().then((doc) => {
-      tweetRef.update({
-        likes: doc.data().likes === 0 ? 1 : 0,
-      });
-    });
-  };
 
   return (
     <Container>
@@ -63,7 +55,7 @@ export default function Timeline() {
                       <p>
                         <img src={Retweets} alt="Retweet" /> {tweet.retweets}
                       </p>
-                      <p onClick={() => likeTweet(tweet.id)}>
+                      <p onClick={() => dispatch(LikeTweet(tweet.id))}>
                         <img src={tweet.likes > 0 ? Liked : Like} alt="Likes" />{" "}
                         {tweet.likes}
                       </p>

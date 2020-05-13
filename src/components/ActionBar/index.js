@@ -1,33 +1,35 @@
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import React, { useState, useMemo } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import uuid from "react-uuid";
 import { db } from "../../firebase";
 import { Container, Content, NewTweets } from "./styles";
 import More from "../../assets/icons/more.svg";
-
+import { newTweet } from "../../store/modules/user/actions";
 export default function ActionBar() {
-  const [tweet, setTweet] = useState("");
+  const dispatch = useDispatch();
 
-  const { followers, following, favorites, tweetsCount } = useSelector(
+  const [tweet, setTweet] = useState("");
+  const { followers, following, favorites, tweets } = useSelector(
     (state) => state.user
   );
+
+  const tweetsCount = useMemo(() => tweets.length, [tweets]);
 
   const handleTweet = (e) => {
     e.preventDefault();
     if (tweet.length > 0) {
       let ref = uuid();
-      db.collection("tweets")
-        .doc(ref)
-        .set({
-          id: ref,
-          text: tweet,
-          likes: 0,
-          comments: 0,
-          replies: 0,
-          created: Date.now(),
-        })
 
-        .then(setTweet(""));
+      let newtweet = {
+        id: ref,
+        text: tweet,
+        likes: 0,
+        comments: 0,
+        replies: 0,
+        created: Date.now(),
+      };
+      dispatch(newTweet(newtweet));
+      db.collection("tweets").doc(ref).set(newtweet).then(setTweet(""));
     }
   };
 

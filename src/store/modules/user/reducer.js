@@ -1,8 +1,7 @@
 import produce from "immer";
-import Avatar from "../../../assets/images/avatar.png";
+import Avatar from "../../../assets/images/avatar.jpeg";
 import Cover from "../../../assets/images/Cover.jpg";
 import Alan from "../../../assets/images/Alan.jpg";
-
 import Grace from "../../../assets/images/Grace.jpeg";
 import Airplane from "../../../assets/images/airplane.jpeg";
 import Ada from "../../../assets/images/ada.jpg";
@@ -18,6 +17,36 @@ const INITIAL_STATE = {
   following: 42,
   favorites: 42,
   tweetsCount: 0,
+  tweets: [
+    {
+      id: 0,
+      text: "Testing my twiiter clone",
+      likes: 1,
+      comments: 2,
+      retweets: 0,
+    },
+    {
+      id: 1,
+      text: "you can like this tweet",
+      likes: 0,
+      comments: 2,
+      retweets: 0,
+    },
+    {
+      id: 2,
+      text: "change you avatar and cover photo",
+      likes: 0,
+      comments: 2,
+      retweets: 0,
+    },
+    {
+      id: 3,
+      text: "and change your username in the profile page",
+      likes: 0,
+      comments: 2,
+      retweets: 0,
+    },
+  ],
   suggestUsers: [
     { id: 0, avatar: Ada, name: "Ada", userName: "@lovelace" },
     { id: 1, avatar: Grace, name: "Grace", userName: "@hooper" },
@@ -67,11 +96,26 @@ export default function user(state = INITIAL_STATE, action) {
         break;
       }
 
-      case "@user/SET_TWEETS_COUNT": {
-        draft.tweetsCount = action.payload.count;
+      case "@user/SET_TWEETS": {
+        draft.tweets.push(action.payload.tweets);
 
         break;
       }
+      case "@user/NEW_TWEET": {
+        draft.tweets.unshift(action.payload.tweet);
+
+        break;
+      }
+      case "@user/LIKE_TWEET": {
+        const index = draft.tweets.findIndex(
+          (tweet) => tweet.id === action.payload.id
+        );
+        if (index > 0)
+          draft.tweets[index].likes = draft.tweets[index].likes === 1 ? 0 : 1;
+
+        break;
+      }
+
       case "@user/FOLLOW_USER": {
         const index = draft.suggestUsers.findIndex(
           (user) => user.id === action.payload.id
