@@ -12,13 +12,6 @@ export function changeCover(url) {
   };
 }
 
-export function NewTweet(tweet) {
-  return {
-    type: "@user/NEW_TWEET",
-    payload: { tweet },
-  };
-}
-
 export function followUser(id) {
   return {
     type: "@user/FOLLOW_USER",
