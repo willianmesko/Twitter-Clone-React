@@ -1,28 +1,33 @@
-import React, { useState, useMemo } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import uuid from "react-uuid";
+import { db } from "../../firebase";
 import { Container, Content, NewTweets } from "./styles";
-import { NewTweet } from "../../store/modules/user/actions";
 import More from "../../assets/icons/more.svg";
 
 export default function ActionBar() {
-  const [tweet, setTweet] = useState({
-    id: "",
-    text: "",
-  });
+  const [tweet, setTweet] = useState("");
 
-  const { followers, following, favorites, tweets } = useSelector(
+  const { followers, following, favorites, tweetsCount } = useSelector(
     (state) => state.user
   );
-  const dispatch = useDispatch();
-
-  const tweetsCount = useMemo(() => tweets.length, [tweets]);
 
   const handleTweet = (e) => {
     e.preventDefault();
-    if (tweet.text.length > 0) {
-      dispatch(NewTweet(tweet));
-      setTweet({ id: "", text: "" });
+    if (tweet.length > 0) {
+      let ref = uuid();
+      db.collection("tweets")
+        .doc(ref)
+        .set({
+          id: ref,
+          text: tweet,
+          likes: 0,
+          comments: 0,
+          replies: 0,
+          created: Date.now(),
+        })
+
+        .then(setTweet(""));
     }
   };
 
@@ -54,8 +59,8 @@ export default function ActionBar() {
       <NewTweets>
         <form onSubmit={handleTweet}>
           <textarea
-            value={tweet.text}
-            onChange={(e) => setTweet({ id: uuid(), text: e.target.value })}
+            value={tweet}
+            onChange={(e) => setTweet(e.target.value)}
             placeholder="What is happening?"
           />
           <button>Tweet</button>

@@ -13,49 +13,10 @@ const INITIAL_STATE = {
   avatar:
     "https://firebasestorage.googleapis.com/v0/b/firacode-twitter.appspot.com/o/images%2F26778884.jpeg?alt=media&token=d2d396a0-5cf0-434d-a048-dea78af79d7c",
   cover: Cover,
-  tweets: [
-    {
-      id: 0,
-      text: "Testing my twitter clone",
-      likes: 1,
-      comments: 10,
-      replies: 30,
-    },
-    {
-      id: 1,
-      text: "you can like this tweet",
-      likes: 0,
-      comments: 0,
-      replies: 0,
-    },
-    {
-      id: 2,
-      text: "change profile and cover photo",
-      likes: 1,
-      comments: 4,
-      replies: 3,
-    },
-    {
-      id: 3,
-      text:
-        "change your username on the profile page '/profile', and follow the users in the suggestion box",
-      likes: 1,
-      comments: 4,
-      replies: 3,
-    },
-    {
-      id: 4,
-      text: "... and access your photos in the media tab",
-      likes: 0,
-      comments: 0,
-      replies: 0,
-    },
-  ],
-
   followers: 42,
   following: 42,
   favorites: 42,
-
+  tweetsCount: 0,
   suggestUsers: [
     { id: 0, avatar: Ada, name: "Ada", userName: "@lovelace" },
     { id: 1, avatar: Grace, name: "Grace", userName: "@hooper" },
@@ -105,12 +66,8 @@ export default function user(state = INITIAL_STATE, action) {
         break;
       }
 
-      case "@user/NEW_TWEET": {
-        draft.tweets.unshift(action.payload.tweet);
-
-        draft.tweets[0].comments = 0;
-        draft.tweets[0].likes = 0;
-        draft.tweets[0].replies = 0;
+      case "@user/SET_TWEETS_COUNT": {
+        draft.tweetsCount = action.payload.count;
 
         break;
       }
@@ -130,16 +87,7 @@ export default function user(state = INITIAL_STATE, action) {
         draft.suggestUsers = INITIAL_STATE.suggestUsers;
         break;
       }
-      case "@user/LIKE_TWEET": {
-        const index = draft.tweets.findIndex(
-          (tweet) => tweet.id === action.payload.id
-        );
 
-        if (index >= 0) {
-          draft.tweets[index].likes = draft.tweets[index].likes === 1 ? 0 : 1;
-        }
-        break;
-      }
       case "@user/UPDATE_PROFILE": {
         draft.name = action.payload.name;
         draft.userName = action.payload.username;

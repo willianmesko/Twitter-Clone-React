@@ -31,16 +31,17 @@ export function refreshSuggestUser() {
     type: "@user/REFRESH_SUGGEST_USER",
   };
 }
-export function likeTweet(id) {
-  return {
-    type: "@user/LIKE_TWEET",
-    payload: { id },
-  };
-}
 
 export function updateProfile(name, username, bio, link) {
   return {
     type: "@user/UPDATE_PROFILE",
     payload: { name, username, bio, link },
+  };
+}
+
+export function setTweetsCount(count) {
+  return {
+    type: "@user/SET_TWEETS_COUNT",
+    payload: { count },
   };
 }

@@ -6,6 +6,7 @@ import ReactLoading from "react-loading";
 import { IoMdPhotos } from "react-icons/io";
 
 import { Container } from "./styles";
+
 export default function Cover() {
   const { cover } = useSelector((state) => state.user);
   const [loading, setLoading] = useState(false);
