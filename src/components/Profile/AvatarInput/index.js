@@ -30,10 +30,10 @@ const AvatarInput = () => {
             .then((url) => {
               dispatch(changeAvatar(url));
               setLoading(false);
+              db.collection("perfil").doc("images").update({ avatar: url });
             });
         }
       );
-      db.collection("perfil").doc("images").update({ avatar: avatar });
     }
   };
   return (
