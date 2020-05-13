@@ -18,7 +18,6 @@ export default function Timeline() {
     db.collection("tweets")
       .orderBy("created", "desc")
       .get()
-
       .then((querySnapshot) => {
         const data = querySnapshot.docs.map((doc) => doc.data());
         setTweets(data);
