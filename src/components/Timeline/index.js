@@ -24,7 +24,7 @@ export default function Timeline() {
         const data = querySnapshot.docs.map((doc) => doc.data());
         if (data.length > 0) dispatch(setTweets(data));
       });
-  }, [dispatch]);
+  }, []);
 
   return (
     <Container>
