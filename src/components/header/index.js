@@ -15,9 +15,11 @@ export default function Header() {
   useEffect(() => {
     const perfilImages = db.collection("perfil").doc("images");
     perfilImages.get().then((images) => {
-      const { avatar, cover } = images.data();
-      dispatch(changeAvatar(avatar));
-      dispatch(changeCover(cover));
+      if (images) {
+        const { avatar, cover } = images.data();
+        dispatch(changeAvatar(avatar));
+        dispatch(changeCover(cover));
+      }
     });
   }, [dispatch]);
   return (

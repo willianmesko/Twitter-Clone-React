@@ -97,7 +97,7 @@ export default function user(state = INITIAL_STATE, action) {
       }
 
       case "@user/SET_TWEETS": {
-        draft.tweets.push(action.payload.tweets);
+        draft.tweets = action.payload.tweets;
 
         break;
       }
@@ -110,7 +110,7 @@ export default function user(state = INITIAL_STATE, action) {
         const index = draft.tweets.findIndex(
           (tweet) => tweet.id === action.payload.id
         );
-        if (index > 0)
+        if (index >= 0)
           draft.tweets[index].likes = draft.tweets[index].likes === 1 ? 0 : 1;
 
         break;
