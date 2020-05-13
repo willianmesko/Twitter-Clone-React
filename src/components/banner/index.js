@@ -1,10 +1,9 @@
 import React, { useRef, useState } from "react";
-import { storage } from "../../firebase";
+import { db, storage } from "../../firebase";
 import { useSelector, useDispatch } from "react-redux";
 import { changeCover } from "../../store/modules/user/actions";
 import ReactLoading from "react-loading";
 import { IoMdPhotos } from "react-icons/io";
-
 import { Container } from "./styles";
 
 export default function Cover() {
@@ -32,6 +31,7 @@ export default function Cover() {
             .then((url) => {
               dispatch(changeCover(url));
               setLoading(false);
+              db.collection("perfil").doc("images").update({ cover: url });
             });
         }
       );

@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { Container } from "./styles";
-import { storage } from "../../../firebase";
+import { db, storage } from "../../../firebase";
 import { useSelector, useDispatch } from "react-redux";
 import { changeAvatar } from "../../../store/modules/user/actions";
 import { IoMdPhotos } from "react-icons/io";
@@ -20,9 +20,7 @@ const AvatarInput = () => {
         .put(e.target.files[0]);
       uploadTask.on(
         "state_changed",
-        (snapshot) => {
-          console.log(snapshot);
-        },
+        (snapshot) => {},
         (error) => console.log(error),
         () => {
           storage
@@ -35,6 +33,7 @@ const AvatarInput = () => {
             });
         }
       );
+      db.collection("perfil").doc("images").update({ avatar: avatar });
     }
   };
   return (

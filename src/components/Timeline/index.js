@@ -23,7 +23,7 @@ export default function Timeline() {
         setTweets(data);
         dispatch(setTweetsCount(data.length));
       });
-  });
+  }, [tweets]);
 
   const likeTweet = (id) => {
     const tweetRef = db.collection("tweets").doc(id);

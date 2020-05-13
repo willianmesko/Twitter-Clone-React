@@ -3,16 +3,14 @@ import Alan from "../../../assets/images/Alan.jpg";
 import Grace from "../../../assets/images/Grace.jpeg";
 import Airplane from "../../../assets/images/airplane.jpeg";
 import Ada from "../../../assets/images/ada.jpg";
-import Cover from "../../../assets/images/Cover.jpg";
 
 const INITIAL_STATE = {
   name: "Willian Mesko",
   bio: "Software developer",
   userName: "Mesko",
   link: "https://github.com/willianmesko/",
-  avatar:
-    "https://firebasestorage.googleapis.com/v0/b/firacode-twitter.appspot.com/o/images%2F26778884.jpeg?alt=media&token=d2d396a0-5cf0-434d-a048-dea78af79d7c",
-  cover: Cover,
+  avatar: "",
+  cover: "",
   followers: 42,
   following: 42,
   favorites: 42,

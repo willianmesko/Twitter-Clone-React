@@ -1,14 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { db } from "../../firebase";
 import { Container, Content, Side } from "./styles";
 import Home from "../../assets/icons/home.svg";
 import Notification from "../../assets/icons/notification.svg";
 import Messages from "../../assets/icons/message.svg";
 import Logo from "../../assets/icons/logo.svg";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { changeAvatar, changeCover } from "../../store/modules/user/actions";
 
 export default function Header() {
   const { avatar } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const perfilImages = db.collection("perfil").doc("images");
+    perfilImages.get().then((images) => {
+      const { avatar, cover } = images.data();
+      dispatch(changeAvatar(avatar));
+      dispatch(changeCover(cover));
+    });
+  }, []);
   return (
     <Container>
       <Content>
