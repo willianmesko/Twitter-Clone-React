@@ -1,5 +1,8 @@
 import produce from "immer";
+import Avatar from "../../../assets/images/avatar.png";
+import Cover from "../../../assets/images/Cover.jpg";
 import Alan from "../../../assets/images/Alan.jpg";
+
 import Grace from "../../../assets/images/Grace.jpeg";
 import Airplane from "../../../assets/images/airplane.jpeg";
 import Ada from "../../../assets/images/ada.jpg";
@@ -9,8 +12,8 @@ const INITIAL_STATE = {
   bio: "Software developer",
   userName: "Mesko",
   link: "https://github.com/willianmesko/",
-  avatar: "",
-  cover: "",
+  avatar: Avatar,
+  cover: Cover,
   followers: 42,
   following: 42,
   favorites: 42,

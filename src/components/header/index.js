@@ -19,7 +19,7 @@ export default function Header() {
       dispatch(changeAvatar(avatar));
       dispatch(changeCover(cover));
     });
-  }, []);
+  }, [dispatch]);
   return (
     <Container>
       <Content>

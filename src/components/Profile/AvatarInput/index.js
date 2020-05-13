@@ -46,7 +46,7 @@ const AvatarInput = () => {
 
         <input
           ref={inputRef}
-          onChange={uploadImage}
+          onChange={(e) => uploadImage(e)}
           type="file"
           accept="image/*"
         />
